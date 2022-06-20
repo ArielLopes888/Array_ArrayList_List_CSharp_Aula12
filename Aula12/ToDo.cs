@@ -8,6 +8,7 @@ namespace Aula12
 {
     public class ToDo
     {
+        List<string> ListaTarefas = new List<string>();
         public int selecionarTarefa()
         {
             Console.WriteLine("O que você deseja fazer?");
@@ -54,17 +55,31 @@ namespace Aula12
             
             public void adicionarTarefa()
             {
-
+                Console.WriteLine("Qual tarefa você deseja adicionar?");
+                ListaTarefas.Add(Console.ReadLine());
             }
 
             public void removerTarefa()
             {
 
+                Console.WriteLine("Qual tarefa você deseja remover?");
+                string tarefa = Console.ReadLine();
+                if (ListaTarefas.Contains(tarefa){
+                    ListaTarefas.Remove();
+                }
+                else
+                {
+                    Console.WriteLine("Essa tarefa não está na lista.");
+                }
+                
             }
 
             public void atualizarTarefa()
             {
-
+                Console.WriteLine("Qual o índice da tarefa que você deseja atualizar?");
+                int indice = int.Parse(Console.ReadLine());
+                Console.WriteLine("Qual a nova tarefa?");
+                ListaTarefas[indice] = Console.ReadLine();
             }
 
             public void listarTodasAsTarefas()
