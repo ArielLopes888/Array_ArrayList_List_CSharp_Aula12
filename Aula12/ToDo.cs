@@ -64,9 +64,10 @@ namespace Aula12
 
                 Console.WriteLine("Qual tarefa você deseja remover?");
                 string tarefa = Console.ReadLine();
-                if (ListaTarefas.Contains(tarefa){
-                    ListaTarefas.Remove();
-                }
+                if (ListaTarefas.Contains(tarefa))
+                    {
+                    ListaTarefas.Remove(tarefa);
+                    }
                 else
                 {
                     Console.WriteLine("Essa tarefa não está na lista.");
@@ -84,12 +85,17 @@ namespace Aula12
 
             public void listarTodasAsTarefas()
             {
-
+                for (int i = 0; i < ListaTarefas.Count; i++)
+                {
+                    Console.WriteLine(ListaTarefas[i]);
+                }
             }
 
             public void apresentarUmaTarefaAPartirDoIndice()
             {
-
+                Console.WriteLine("Qual índice da tarefa que você deseja procurar?");
+                int indice = int.Parse(Console.ReadLine());
+                Console.WriteLine(ListaTarefas[indice]);
             }
 
 
