@@ -8,7 +8,7 @@ namespace Aula12
 {
     public class ToDo
     {
-        List<string> ListaTarefas = new List<string>();
+        private List<string> ListaTarefas = new List<string>();
         public int selecionarTarefa()
         {
             Console.WriteLine("O que você deseja fazer?");
@@ -52,54 +52,61 @@ namespace Aula12
                 }
                 tarefa = selecionarTarefa();
             }
-            
-            public void adicionarTarefa()
+        }
+
+        public void adicionarTarefa()
+        {
+            Console.WriteLine("Qual tarefa você deseja adicionar?");
+            ListaTarefas.Add(Console.ReadLine());
+        }
+
+        public void removerTarefa()
+        {
+
+            Console.WriteLine("Qual tarefa você deseja remover?");
+            string tarefa = Console.ReadLine();
+            if (ListaTarefas.Contains(tarefa))
             {
-                Console.WriteLine("Qual tarefa você deseja adicionar?");
-                ListaTarefas.Add(Console.ReadLine());
+                ListaTarefas.Remove(tarefa);
             }
-
-            public void removerTarefa()
+            else
             {
-
-                Console.WriteLine("Qual tarefa você deseja remover?");
-                string tarefa = Console.ReadLine();
-                if (ListaTarefas.Contains(tarefa))
-                    {
-                    ListaTarefas.Remove(tarefa);
-                    }
-                else
-                {
-                    Console.WriteLine("Essa tarefa não está na lista.");
-                }
-                
+                Console.WriteLine("Essa tarefa não está na lista.");
             }
-
-            public void atualizarTarefa()
-            {
-                Console.WriteLine("Qual o índice da tarefa que você deseja atualizar?");
-                int indice = int.Parse(Console.ReadLine());
-                Console.WriteLine("Qual a nova tarefa?");
-                ListaTarefas[indice] = Console.ReadLine();
-            }
-
-            public void listarTodasAsTarefas()
-            {
-                for (int i = 0; i < ListaTarefas.Count; i++)
-                {
-                    Console.WriteLine(ListaTarefas[i]);
-                }
-            }
-
-            public void apresentarUmaTarefaAPartirDoIndice()
-            {
-                Console.WriteLine("Qual índice da tarefa que você deseja procurar?");
-                int indice = int.Parse(Console.ReadLine());
-                Console.WriteLine(ListaTarefas[indice]);
-            }
-
 
         }
+
+        public void atualizarTarefa()
+        {
+            Console.WriteLine("Qual o índice da tarefa que você deseja atualizar?");
+            int indice = int.Parse(Console.ReadLine());
+            Console.WriteLine("Qual a nova tarefa?");
+            ListaTarefas[indice] = Console.ReadLine();
+        }
+
+        public void listarTodasAsTarefas()
+        {
+            for (int i = 0; i < ListaTarefas.Count; i++)
+            {
+                Console.WriteLine(ListaTarefas[i]);
+            }
+        }
+
+        public void apresentarUmaTarefaAPartirDoIndice()
+        {
+            Console.WriteLine("Qual índice da tarefa que você deseja procurar?");
+            int indice = int.Parse(Console.ReadLine());
+            if (indice < ListaTarefas.Count)
+            {
+                Console.WriteLine(ListaTarefas[indice]);
+            } else
+            {
+                Console.WriteLine("A lista não possui esse índice.");
+            }
+            
+        }
+
+
     }
 }
 /*
